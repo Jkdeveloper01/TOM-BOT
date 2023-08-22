@@ -25,8 +25,8 @@ async def start(client, message):
         buttons = [[
                     InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                   ],[
-                    InlineKeyboardButton('Uᴘᴅᴀᴛᴇs', url='https://t.me/CornersOfficial'),
-                    InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ', url='https://t.me/Request_Corner1')
+                    InlineKeyboardButton('Uᴘᴅᴀᴛᴇs', url='https://t.me/Lusifilms'),
+                    InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ', url='https://t.me/Apnamovie4')
                   ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         kd = await message.reply_photo(
@@ -45,10 +45,7 @@ async def start(client, message):
     if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('〆 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[
-            InlineKeyboardButton('🔍 sᴇᴀʀᴄʜ​', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🎀💻 ᴅᴇᴠ​', callback_data='owner_info')
-            ],[      
+            ],[     
             InlineKeyboardButton('🕯 ʜᴇʟᴘ 🕯', callback_data='help2'),
             InlineKeyboardButton('🍾 ᴀʙᴏᴜᴛ 🍾', callback_data='about')
             ],[
@@ -71,9 +68,6 @@ async def start(client, message):
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
             InlineKeyboardButton('〆 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[
-            InlineKeyboardButton('🔍 sᴇᴀʀᴄʜ​', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🎀💻 ᴅᴇᴠ​', callback_data='owner_info')
             ],[      
             InlineKeyboardButton('🕯 ʜᴇʟᴘ 🕯', callback_data='help2'),
             InlineKeyboardButton('🍾 ᴀʙᴏᴜᴛ 🍾', callback_data='about')
@@ -135,7 +129,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [                         
-                          InlineKeyboardButton("❤️‍🔥 ᴍᴏᴠɪᴇs ❤️‍🔥", url='https://t.me/Movies_Corner20')                         
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')                         
                          ]
                         ]
                     )
@@ -151,7 +145,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton("❤️‍🔥 ᴍᴏᴠɪᴇs ❤️‍🔥", url='https://t.me/Movies_Corner20')   
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')   
                          ]
                         ]
                     )
@@ -249,7 +243,7 @@ async def start(client, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                          [
-                          InlineKeyboardButton("❤️‍🔥 ᴍᴏᴠɪᴇs ❤️‍🔥", url='https://t.me/Movies_Corner20')   
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')   
                          ]
                         ]
                     )
@@ -299,7 +293,7 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
              [
-              InlineKeyboardButton("❤️‍🔥 ᴍᴏᴠɪᴇs ❤️‍🔥", url='https://t.me/Movies_Corner20')   
+              InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')   
              ]
               ]
        )
