@@ -30,7 +30,7 @@ async def save_group(bot, message):
         if message.chat.id in temp.BANNED_CHATS:
             # Inspired from a boat of a banana tree
             buttons = [[
-                InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
+                InlineKeyboardButton('Support', url=f'https://t.me/Apnamovie4')
             ]]
             reply_markup=InlineKeyboardMarkup(buttons)
             k = await message.reply(
@@ -45,7 +45,7 @@ async def save_group(bot, message):
             await bot.leave_chat(message.chat.id)
             return
         buttons = [[
-                    InlineKeyboardButton('📣 Uᴘᴅᴀᴛᴇs', url='https://t.me/CornersOfficial'),
+                    InlineKeyboardButton('📣 Uᴘᴅᴀᴛᴇs', url='https://t.me/Lusifilms'),
                     InlineKeyboardButton('❓ Hᴇʟᴘ', url=f"https://t.me/{temp.U_NAME}?start=help")
                   ]]
         reply_markup=InlineKeyboardMarkup(buttons)
@@ -67,7 +67,7 @@ async def save_group(bot, message):
                                                  caption=(script.MELCOW_ENG.format(u.mention, message.chat.title)),
                                                  reply_markup=InlineKeyboardMarkup(
                                                                          [[
-                                                                             InlineKeyboardButton('🍁 sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ​ 🍁', url='https://t.me/Request_Corner1')
+                                                                             InlineKeyboardButton('🍁 sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ​ 🍁', url='https://t.me/Lusifilms')
                                                                         
                                                                         ]]
                                                  ),
@@ -93,7 +93,7 @@ async def leave_a_chat(bot, message):
         chat = chat
     try:
         buttons = [[
-            InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
+            InlineKeyboardButton('Support', url=f'https://t.me/lusifilms')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
