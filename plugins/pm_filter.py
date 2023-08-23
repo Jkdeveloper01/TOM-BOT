@@ -138,7 +138,7 @@ async def pm_text(bot, message):
          reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📝 ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ​ ", url=f"t.me/Apnamovie4")]]))
     await bot.send_message(
         chat_id=LOG_CHANNEL,
-        text=f"<b>👻 𝐏𝐌_𝐌𝐒𝐆 👻\n\n📝ᴍᴇssᴀɢᴇ​:-{content}\n\n👶🏻ʀᴇQᴜᴇꜱᴛᴇᴅ ʙʏ:-{user}\n\n🃏ᴜꜱᴇʀ ɪᴅ:-{user_id}</b>"
+        text=f"<b>👻 𝐏𝐌_𝐌𝐒𝐆 👻\n\n📝ᴍᴇssᴀɢᴇ​:- {content}\n👶🏻ʀᴇQᴜᴇꜱᴛᴇᴅ ʙʏ:- {user}\n🃏ᴜꜱᴇʀ ɪᴅ:- <code>{user_id}</code></b>"
     )
     
    
@@ -382,7 +382,7 @@ async def advantage_spoll_choker(bot, query):
             if NO_RESULTS_MSG:
                 await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
             k = await query.message.edit(script.MVE_NT_FND)
-            await asyncio.sleep(10)
+            await asyncio.sleep(86400)
             await k.delete()
 
 #languages
