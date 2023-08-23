@@ -55,7 +55,6 @@ async def give_filter(client,message):
     await global_filters(client, message)
     group_id = message.chat.id
     name = message.text
-        userid = message.from_user.id if message.from_user else None
         if not userid:
             search = message.text
             k = await message.reply(f"You'r anonymous admin! Sorry you can't get '{search}' from here.\nYou can get '{search}' from bot inline search.")
