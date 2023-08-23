@@ -50,11 +50,11 @@ async def pv_filter(client, message):
 
        
 
-@Client.on_message(filters.group & filters.text & filters.incoming)
-async def give_filter(client, message):
-    content = message.text
-    settings = await get_settings(message.chat.id)        
-    if settings["auto_ffilter"]:
+@Client.on_message(filters.text & filters.incoming & filters.group)
+async def give_filter(client,message):
+    await global_filters(client, message)
+    group_id = message.chat.id
+    name = message.text
         userid = message.from_user.id if message.from_user else None
         if not userid:
             search = message.text
@@ -824,7 +824,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                           InlineKeyboardButton('🇮🇳 ʜɪɴ', callback_data='hindi'),
                           InlineKeyboardButton('🇮🇳 ᴛᴀᴍ', callback_data='tamil')
                         ],[                         
-                          InlineKeyboardButton("b", url='t.me/CKTalkies')
+                          InlineKeyboardButton("b", url='t.me/Lusifilms')
                         ]]
                     )
                 )
