@@ -42,7 +42,7 @@ SPELL_CHECK = {}
 
 
 
-@Client.on_message(filters.private & filters.text & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.private & filters.text & filters.incoming)
+@Client.on_message(filters.private & filters.text & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.private & filters.text & filters.incoming & filters.group & filters.group)
 async def pv_filter(client, message):
     kd = await global_filters(client, message)
     if kd == False:
@@ -50,11 +50,12 @@ async def pv_filter(client, message):
 
        
 
-@Client.on_message(filters.text & filters.incoming & filters.group)
-async def give_filter(client,message):
-    await global_filters(client, message)
-    group_id = message.chat.id
-    name = message.text
+@Client.on_message(filters.group & filters.text & filters.incoming)
+async def give_filter(client, message):
+    content = message.text
+    settings = await get_settings(message.chat.id)        
+    if settings["auto_ffilter"]:
+        userid = message.from_user.id if message.from_user else None
         if not userid:
             search = message.text
             k = await message.reply(f"You'r anonymous admin! Sorry you can't get '{search}' from here.\nYou can get '{search}' from bot inline search.")
