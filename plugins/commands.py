@@ -131,8 +131,7 @@ async def start(client, message):
                          [                         
                           InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')
                          ],[
-                          InlineKeyboardButton('▶️ Stream online ▶️', url=lazy_stream),
-                          InlineKeyboardButton("📥 Browser Download 📥", url=lazy_download)                        
+                          InlineKeyboardButton('▶️ Stream online ▶️', callback_data=f'generate_stream_link:{file_id}')                     
                          ]
                         ]
                     )
@@ -150,8 +149,7 @@ async def start(client, message):
                          [
                           InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')   
                          ],[
-                          InlineKeyboardButton('▶️ Stream online ▶️', url=lazy_stream),
-                          InlineKeyboardButton("📥 Browser Download 📥", url=lazy_download)
+                          InlineKeyboardButton('▶️ Stream online ▶️', callback_data=f'generate_stream_link:{file_id}')
                          ]
                         ]
                     )
@@ -251,8 +249,7 @@ async def start(client, message):
                          [
                           InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')   
                          ],[
-                          InlineKeyboardButton('▶️ Stream online ▶️', url=lazy_stream),
-                          InlineKeyboardButton("📥 Browser Download 📥", url=lazy_download)
+                          InlineKeyboardButton('▶️ Stream online ▶️', callback_data=f'generate_stream_link:{file_id}')
                          ]
                         ]
                     )
@@ -304,8 +301,7 @@ async def start(client, message):
              [
               InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms') 
              ],[
-              InlineKeyboardButton('▶️ Stream online ▶️', url=lazy_stream),
-              InlineKeyboardButton("📥 Browser Download 📥", url=lazy_download)  
+              InlineKeyboardButton('▶️ Stream online ▶️', callback_data=f'generate_stream_link:{file_id}')
              ]
               ]
        )
