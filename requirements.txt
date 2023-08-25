@@ -22,7 +22,6 @@ pyshorteners
 pyromod
 colorama
 aiohttp
-python-dotenv
 psutil
 heroku3
 openai==0.25.0
