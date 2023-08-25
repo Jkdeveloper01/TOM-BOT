@@ -236,7 +236,8 @@ async def start(client, message):
                     protect_content=True,
                     reply_markup=InlineKeyboardMarkup(btn)
                 )
-        return
+        else:
+            return
             # Create the inline keyboard button with callback_data
             button = InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
             # Create the inline keyboard markup with the button
@@ -247,6 +248,7 @@ async def start(client, message):
                 reply_markup=keyboard,
                 protect_content=True if pre == 'filep' else False,
                 )
+                
             filetype = msg.media
             file = getattr(msg, filetype.value)
             title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))
