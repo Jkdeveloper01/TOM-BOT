@@ -160,7 +160,6 @@ This movie is not in the group yet. Will be available in the group after a few d
 🏷 𝐓𝐢𝐭𝐥𝐞 : {title}
 🎭 𝐆𝐞𝐧𝐫𝐞𝐬 : {genres}
 🌟 𝐑𝐚𝐭𝐢𝐧𝐠 : {rating}
-☀️ 𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞𝐬 : {languages}
 📀 𝐑𝐮𝐧𝐓𝐢𝐦𝐞 : {runtime}
 📆 𝐑𝐞𝐥𝐞𝐚𝐬𝐞 𝐈𝐧𝐟𝐨 : {year}
 🎛 𝐂𝐨𝐮𝐧𝐭𝐫𝐢𝐞𝐬 : {countries}
