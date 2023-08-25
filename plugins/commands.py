@@ -236,20 +236,16 @@ async def start(client, message):
                     protect_content=True,
                     reply_markup=InlineKeyboardMarkup(btn)
                 )
-                return
+        return
+            # Create the inline keyboard button with callback_data
+            button = InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
+            # Create the inline keyboard markup with the button
+            keyboard = InlineKeyboardMarkup([[button]])
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id,
+                reply_markup=keyboard,
                 protect_content=True if pre == 'filep' else False,
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                         [
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')
-                         ],[
-                         InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
-                         ]
-                        ]
-                    )
                 )
             filetype = msg.media
             file = getattr(msg, filetype.value)
@@ -288,21 +284,16 @@ async def start(client, message):
             reply_markup=InlineKeyboardMarkup(btn)
         )
         return
-    await client.send_cached_media(
-        chat_id=message.from_user.id,
-        file_id=file_id,
-        caption=f_caption,
-        protect_content=True if pre == 'filep' else False,
-        reply_markup=InlineKeyboardMarkup(
-            [
-             [
-              InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')  
-             ],[
-             InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
-             ]
-              ]
-       )
-  )
+    # Create the inline keyboard button with callback_data
+            button = InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
+            # Create the inline keyboard markup with the button
+            keyboard = InlineKeyboardMarkup([[button]])
+            msg = await client.send_cached_media(
+                chat_id=message.from_user.id,
+                file_id=file_id,
+                reply_markup=keyboard,
+                protect_content=True if pre == 'filep' else False,
+                )
                     
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
