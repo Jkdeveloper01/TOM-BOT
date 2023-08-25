@@ -1570,7 +1570,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif data.startswith("generate_stream_link"):
+    elif query.data.startswith("generate_stream_link"):
         _, file_id = data.split(":")
         try:
             user_id = query.from_user.id
