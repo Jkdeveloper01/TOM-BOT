@@ -237,7 +237,7 @@ async def start(client, message):
                 reply_markup=keyboard,
                 protect_content=True if pre == 'filep' else False,
                 )
-                return
+        try:
             if not await check_verification(client, message.from_user.id) and VERIFY == True:
                 btn = [[
                     InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
@@ -285,7 +285,7 @@ async def start(client, message):
         reply_markup=keyboard,  # Use the created keyboard
         protect_content=True if pre == 'filep' else False,
         )
-        return
+    try:
     if not await check_verification(client, message.from_user.id) and VERIFY == True:
                 btn = [[
                     InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
