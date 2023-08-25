@@ -1571,7 +1571,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
     elif query.data.startswith("generate_stream_link"):
-        _, file_id = data.split(":")
+        _, file_id = query.data.split(":")
         try:
             user_id = query.from_user.id
             username =  query.from_user.mention 
