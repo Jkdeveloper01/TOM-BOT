@@ -264,7 +264,7 @@ async def start(client, message):
             pass
         return await message.reply('No such file exist.')
     files = files_[0]
-    title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))
+    title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), files.file_name.split()))
     size=get_size(files.file_size)
     f_caption=files.caption
     if CUSTOM_FILE_CAPTION:
