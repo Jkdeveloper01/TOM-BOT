@@ -237,14 +237,19 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(btn)
                 )
                 return
-            InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
-            keyboard = InlineKeyboardMarkup([[button]])
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id,
-                caption=f_caption,
-                reply_markup=keyboard,  # Use the created keyboard
                 protect_content=True if pre == 'filep' else False,
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                         [
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')
+                         ],[
+                         InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file.file_id}')
+                         ]
+                        ]
+                    )
                 )
             filetype = msg.media
             file = getattr(msg, filetype.value)
@@ -283,15 +288,21 @@ async def start(client, message):
             reply_markup=InlineKeyboardMarkup(btn)
         )
         return
-            InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
-            keyboard = InlineKeyboardMarkup([[button]])
-            msg = await client.send_cached_media(
-                chat_id=message.from_user.id,
-                file_id=file_id,
-                caption=f_caption,
-                reply_markup=keyboard,  # Use the created keyboard
-                protect_content=True if pre == 'filep' else False,
-                )
+    await client.send_cached_media(
+        chat_id=message.from_user.id,
+        file_id=file_id,
+        caption=f_caption,
+        protect_content=True if pre == 'filep' else False,
+        reply_markup=InlineKeyboardMarkup(
+            [
+             [
+              InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')  
+             ],[
+             InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file.file_id}')
+             ]
+              ]
+       )
+  )
                     
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
