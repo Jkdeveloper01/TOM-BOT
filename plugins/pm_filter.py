@@ -57,7 +57,7 @@ async def pv_filter(client, message):
 async def give_filter(client, message):
     content = message.text
     settings = await get_settings(message.chat.id)        
-    if settings["auto_filter"]:
+    if settings["auto_ffilter"]:
         userid = message.from_user.id if message.from_user else None
         if not userid:
             search = message.text
@@ -115,13 +115,13 @@ async def give_filter(client, message):
         if manual == False:
             settings = await get_settings(message.chat.id)
             try:
-                if settings['auto_filter']:
+                if settings['auto_ffilter']:
                     await auto_filter(client, message)
             except KeyError:
                 grpid = await active_connection(str(message.from_user.id))
-                await save_group_settings(grpid, 'auto_filter', False)
+                await save_group_settings(grpid, 'auto_ffilter', False)
                 settings = await get_settings(message.chat.id)
-                if settings['auto_filter']:
+                if settings['auto_ffilter']:
                     await auto_filter(client, message) 
                     try:
                         await message.delete()
@@ -1004,11 +1004,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [
                 InlineKeyboardButton(
                     'Aᴜᴛᴏ Fɪʟᴛᴇʀ',
-                    callback_data=f'setgs#auto_filter#{settings["auto_filter"]}#{grp_id}',
+                    callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    'Eɴᴀʙʟᴇ' if settings["auto_filter"] else 'Dɪsᴀʙʟᴇ',
-                    callback_data=f'setgs#auto_filter#{settings["auto_filter"]}#{grp_id}',
+                    'Eɴᴀʙʟᴇ' if settings["auto_ffilter"] else 'Dɪsᴀʙʟᴇ',
+                    callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
             ],
             [
@@ -1137,11 +1137,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [
                 InlineKeyboardButton(
                     'Aᴜᴛᴏ Fɪʟᴛᴇʀ',
-                    callback_data=f'setgs#auto_filter#{settings["auto_filter"]}#{grp_id}',
+                    callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    'Eɴᴀʙʟᴇ' if settings["auto_filter"] else 'Dɪsᴀʙʟᴇ',
-                    callback_data=f'setgs#auto_filter#{settings["auto_filter"]}#{grp_id}',
+                    'Eɴᴀʙʟᴇ' if settings["auto_ffilter"] else 'Dɪsᴀʙʟᴇ',
+                    callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
             ],
             [
@@ -1780,11 +1780,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [
                 InlineKeyboardButton(
                     'Aᴜᴛᴏ Fɪʟᴛᴇʀ',
-                    callback_data=f'setgs#auto_filter#{settings["auto_filter"]}#{grp_id}',
+                    callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    'Eɴᴀʙʟᴇ' if settings["auto_filter"] else 'Dɪsᴀʙʟᴇ',
-                    callback_data=f'setgs#auto_filter#{settings["auto_filter"]}#{grp_id}',
+                    'Eɴᴀʙʟᴇ' if settings["auto_ffilter"] else 'Dɪsᴀʙʟᴇ',
+                    callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
             ],
             [
@@ -2269,13 +2269,13 @@ async def manual_filters(client, message, text=False):
                                 reply_to_message_id=reply_id
                             )
                             try:
-                                if settings['auto_filter']:
+                                if settings['auto_ffilter']:
                                     await auto_filter(client, message)
                             except KeyError:
                                 grpid = await active_connection(str(message.from_user.id))
-                                await save_group_settings(grpid, 'auto_filter', True)
+                                await save_group_settings(grpid, 'auto_ffilter', True)
                                 settings = await get_settings(message.chat.id)
-                                if settings['auto_filter']:
+                                if settings['auto_ffilter']:
                                     await auto_filter(client, message)
                             try:
                                 if settings['auto_delete']:
@@ -2298,13 +2298,13 @@ async def manual_filters(client, message, text=False):
                                 reply_to_message_id=reply_id
                             )
                             try:
-                                if settings['auto_filter']:
+                                if settings['auto_ffilter']:
                                     await auto_filter(client, message)
                             except KeyError:
                                 grpid = await active_connection(str(message.from_user.id))
-                                await save_group_settings(grpid, 'auto_filter', True)
+                                await save_group_settings(grpid, 'auto_ffilter', True)
                                 settings = await get_settings(message.chat.id)
-                                if settings['auto_filter']:
+                                if settings['auto_ffilter']:
                                     await auto_filter(client, message)
                             try:
                                 if settings['auto_delete']:
@@ -2325,13 +2325,13 @@ async def manual_filters(client, message, text=False):
                             reply_to_message_id=reply_id
                         )
                         try:
-                            if settings['auto_filter']:
+                            if settings['auto_ffilter']:
                                 await auto_filter(client, message)
                         except KeyError:
                             grpid = await active_connection(str(message.from_user.id))
-                            await save_group_settings(grpid, 'auto_filter', True)
+                            await save_group_settings(grpid, 'auto_ffilter', True)
                             settings = await get_settings(message.chat.id)
-                            if settings['auto_filter']:
+                            if settings['auto_ffilter']:
                                 await auto_filter(client, message)
                         try:
                             if settings['auto_delete']:
@@ -2352,13 +2352,13 @@ async def manual_filters(client, message, text=False):
                             reply_to_message_id=reply_id
                         )
                         try:
-                            if settings['auto_filter']:
+                            if settings['auto_ffilter']:
                                 await auto_filter(client, message)
                         except KeyError:
                             grpid = await active_connection(str(message.from_user.id))
-                            await save_group_settings(grpid, 'auto_filter', True)
+                            await save_group_settings(grpid, 'auto_ffilter', True)
                             settings = await get_settings(message.chat.id)
-                            if settings['auto_filter']:
+                            if settings['auto_ffilter']:
                                 await auto_filter(client, message)
                         try:
                             if settings['auto_delete']:
