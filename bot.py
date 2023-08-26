@@ -75,11 +75,11 @@ class Bot(Client):
         time = now.strftime("%H:%M:%S %p")
         await self.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
         
-    if __name__ == '__main__':
-    try:
-        loop.run_until_complete(Lazy_start())
-    except KeyboardInterrupt:
-        logging.info('----------------------- Service Stopped -----------------------')
+#    if __name__ == '__main__':
+#    try:
+#        loop.run_until_complete(Lazy_start())
+ #   except KeyboardInterrupt:
+ #       logging.info('----------------------- Service Stopped -----------------------')
         
     async def stop(self, *args):
         await super().stop()
