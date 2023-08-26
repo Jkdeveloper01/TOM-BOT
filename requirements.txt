@@ -25,3 +25,4 @@ aiohttp
 psutil
 heroku3
 openai==0.25.0
+gunicorn==20.1.0
