@@ -14,7 +14,7 @@ hachoir
 Pillow
 humanize
 aiofiles
-dnspython
+dnspython==2.3.0
 pynewtonmath
 python-dotenv<=0.20.0
 apscheduler
