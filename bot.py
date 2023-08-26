@@ -11,13 +11,23 @@ from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media
 from database.users_chats_db import db
-from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR, LOG_CHANNEL
+from info import *
 from utils import temp
 from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
 from Script import script 
 from datetime import date, datetime 
 import pytz
+
+import asyncio
+from pyrogram import idle
+from lazybot import LazyPrincessBot
+from util.keepalive import ping_server
+from lazybot.clients import initialize_clients
+
+PORT = "8080"
+LazyPrincessBot.start()
+loop = asyncio.get_event_loop()
 
 class Bot(Client):
 
@@ -33,6 +43,13 @@ class Bot(Client):
         )
 
     async def start(self):
+        print('\n')
+        print(' Initalizing Telegram Bot ')
+        bot_info = await LazyPrincessBot.get_me()
+        LazyPrincessBot.username = bot_info.username
+        await initialize_clients()
+        if ON_HEROKU:
+            asyncio.create_task(ping_server())
         b_users, b_chats = await db.get_banned()
         temp.BANNED_USERS = b_users
         temp.BANNED_CHATS = b_chats
@@ -43,16 +60,27 @@ class Bot(Client):
         temp.U_NAME = me.username
         temp.B_NAME = me.first_name
         self.username = '@' + me.username
-        self.uptime = datetime.now()
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        bind_address = "0.0.0.0" if ON_HEROKU else BIND_ADRESS
+        await web.TCPSite(app, bind_address, PORT).start()
         logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
         logging.info(LOG_STR)
+        await idle()
+        self.uptime = datetime.now()
         logging.info(script.LOGO)
         tz = pytz.timezone('Asia/Kolkata')
         today = date.today()
         now = datetime.now(tz)
         time = now.strftime("%H:%M:%S %p")
         await self.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
-
+        
+    if __name__ == '__main__':
+    try:
+        loop.run_until_complete(Lazy_start())
+    except KeyboardInterrupt:
+        logging.info('----------------------- Service Stopped -----------------------')
+        
     async def stop(self, *args):
         await super().stop()
         logging.info("Bot stopped. Bye.")
