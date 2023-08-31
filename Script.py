@@ -149,11 +149,11 @@ This movie is not in the group yet. Will be available in the group after a few d
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
     CAPTION = """
-<b>📂Title : <a href=https://t.me/lusifilms>{file_name}</a></b>
+<b>📂Title : <a href=https://t.me/Latest_movies_freeOnNet>{file_name}</a></b>
     
 ╔═══════※ ·❆· ※═══════╗
-▫️ Cʜᴀɴɴᴇʟ : <a href=https://t.me/lusifilms>𝐋𝐮𝐬𝐢 𝐅𝐢𝐥𝐦𝐬™</a>
-▫️ Mᴏᴠɪᴇ Rᴇǫ Gʀ  : <a href=https://t.me/apnamovie4>𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞</a>
+▫️ Cʜᴀɴɴᴇʟ : <a href=https://t.me/Latest_movies_freeOnNet>𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞</a>
+▫️ Mᴏᴠɪᴇ Rᴇǫ Gʀ  : <a href=https://t.me/Mix_Cinema_Box>𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞</a>
 ╚═══════※ ·❆· ※═══════╝"""
 
     IMDB_TEMPLATE_TXT = """
