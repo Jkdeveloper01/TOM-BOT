@@ -239,7 +239,7 @@ async def start(client, message):
                 return
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
-                file_id=file_id,
+                fil_id=file_id,
                 protect_content=True if pre == 'filep' else False,
                 reply_markup=InlineKeyboardMarkup(
                     [
@@ -290,7 +290,7 @@ async def start(client, message):
         return
     await client.send_cached_media(
         chat_id=message.from_user.id,
-        file_id=file_id,
+        fil_id=file_id,
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
         reply_markup=InlineKeyboardMarkup(
