@@ -129,7 +129,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [                         
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Latest_movies_freeOnNet')                         
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=f'https://t.me/Latest_movies_freeOnNet')                         
                          ]
                         ]
                     )
@@ -145,7 +145,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Latest_movies_freeOnNet')   
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=f'https://t.me/Latest_movies_freeOnNet')   
                          ]
                         ]
                     )
@@ -243,7 +243,7 @@ async def start(client, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                          [
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Latest_movies_freeOnNet')   
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=f'https://t.me/Latest_movies_freeOnNet')   
                          ]
                         ]
                     )
@@ -293,7 +293,7 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
              [
-              InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Latest_movies_freeOnNet')   
+              InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=f'https://t.me/Latest_movies_freeOnNet')   
              ]
               ]
        )
