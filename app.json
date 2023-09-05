@@ -15,8 +15,8 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/Jkdeveloper01/TOM-BOT",
-    "repository": "https://github.com/Jkdeveloper01/TOM-BOT",
+    "website": "https://github.com/Jkdeveloper01/TOM-BOT/edit/Titanaboa",
+    "repository": "https://github.com/Jkdeveloper01/TOM-BOT/edit/Titanaboa",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
