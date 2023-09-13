@@ -1605,8 +1605,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                                                     InlineKeyboardButton('▶Stream online', url=lazy_stream)]])  # web stream Link
             )
         except Exception as e:
-            print(e)  # print the error message
-            await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
+#            print(e)  # print the error message
+#            await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
             return
 
     elif query.data == "coct":
