@@ -1562,6 +1562,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+    elif query.data == "autofilter":
+        buttons = [[
+            InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='filters')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.AUTOFILTER_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
     elif query.data.startswith("generate_stream_link"):
         _, file_id = query.data.split(":")
         try:
@@ -1599,17 +1609,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
             return
 
-
-    elif query.data == "autofilter":
-        buttons = [[
-            InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='filters')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.AUTOFILTER_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
     elif query.data == "coct":
         buttons = [[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='help2')
