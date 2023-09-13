@@ -13,7 +13,8 @@ from database.connections_mdb import active_connection, all_connections, delete_
     make_inactive
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
     
-from info import *
+from info import LANGUAGES, IMDB_DLT_TIME, BOT_START_TIME, MAX_BTN, ADMINS, AUTH_CHANNEL, AUTH_USERS, SUPPORT_CHAT_ID, CUSTOM_FILE_CAPTION, MSG_ALRT, PICS, AUTH_GROUPS, P_TTI_SHOW_OFF, GRP_LNK, CHNL_LNK, NOR_IMG, LOG_CHANNEL, MAX_B_TN, IMDB, \
+    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NO_RESULTS_MSG, REQ_CHANNEL, MAIN_CHANNEL, FILE_CHANNEL, FILE_CHANNEL_LINK, CLOSE_IMG, DELETE_TIME, LOGIN_CHANNEL, JOIN_IMG
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto, ChatPermissions
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
@@ -25,10 +26,6 @@ from database.filters_mdb import (
     find_filter,
     get_filters,
 )
-from util.human_readable import humanbytes
-from urllib.parse import quote_plus
-from util.file_properties import get_name, get_hash, get_media_file_size
-
 from database.gfilters_mdb import (
     find_gfilter,
     get_gfilters,
@@ -57,7 +54,7 @@ async def pv_filter(client, message):
 async def give_filter(client, message):
     content = message.text
     settings = await get_settings(message.chat.id)        
-    if settings["auto_ffilter"]:
+    if settings["auto_filter"]:
         userid = message.from_user.id if message.from_user else None
         if not userid:
             search = message.text
@@ -141,7 +138,7 @@ async def pm_text(bot, message):
          reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📝 ʀᴇǫᴜᴇsᴛ ʜᴇʀᴇ​ ", url=f"t.me/Apnamovie4")]]))
     await bot.send_message(
         chat_id=LOG_CHANNEL,
-        text=f"<b>👻 𝐏𝐌_𝐌𝐒𝐆 👻\n\n📝ᴍᴇssᴀɢᴇ​:- {content}\n👶🏻ʀᴇQᴜᴇꜱᴛᴇᴅ ʙʏ:- {user}\n🃏ᴜꜱᴇʀ ɪᴅ:- <code>{user_id}</code></b>"
+        text=f"<b>👻 𝐏𝐌_𝐌𝐒𝐆 👻\n\n📝ᴍᴇssᴀɢᴇ​:-{content}\n\n👶🏻ʀᴇQᴜᴇꜱᴛᴇᴅ ʙʏ:-{user}\n\n🃏ᴜꜱᴇʀ ɪᴅ:-{user_id}</b>"
     )
     
    
@@ -169,7 +166,7 @@ async def next_page(bot, query):
         return
     settings = await get_settings(query.message.chat.id)
     if 'is_shortlink' in settings.keys():
-        enable_shortlink = settings['is_shortlink']
+        ENABLE_SHORTLINK = settings['is_shortlink']
     else:
         await save_group_settings(query.message.chat.id, 'is_shortlink', False)
         ENABLE_SHORTLINK = False
@@ -178,7 +175,7 @@ async def next_page(bot, query):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"{get_size(file.file_size)} ⊳ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        text=f"▫️ {get_size(file.file_size)} ⊳ {file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
                     ),
                 ]
                 for file in files
@@ -187,7 +184,7 @@ async def next_page(bot, query):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        text=f"{file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
                     ),
                     InlineKeyboardButton(
                         text=f"{get_size(file.file_size)}",
@@ -201,7 +198,7 @@ async def next_page(bot, query):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"{get_size(file.file_size)} ⊳ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'
+                        text=f"▫️ {get_size(file.file_size)} ⊳ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'files#{file.file_id}'
                     ),
                 ]
                 for file in files
@@ -210,11 +207,11 @@ async def next_page(bot, query):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'
+                        text=f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'files#{file.file_id}'
                     ),
                     InlineKeyboardButton(
                         text=f"{get_size(file.file_size)}",
-                        callback_data=f'https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}',
+                        callback_data=f'files_#{file.file_id}',
                     ),
                 ]
                 for file in files
@@ -349,7 +346,7 @@ async def next_page(bot, query):
                     ],
                 )
     btn.insert(0, [
-        InlineKeyboardButton(f'Jᴏɪɴ Bᴀᴄᴋᴜᴘ ☑️', url=f'https://t.me/Lusifilms')
+        InlineKeyboardButton(f'🔍 {search} 🔎', 'reqst1')
     ])
     try:
         await query.edit_message_reply_markup(
@@ -385,7 +382,7 @@ async def advantage_spoll_choker(bot, query):
             if NO_RESULTS_MSG:
                 await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
             k = await query.message.edit(script.MVE_NT_FND)
-            await asyncio.sleep(86400)
+            await asyncio.sleep(10)
             await k.delete()
 
 #languages
@@ -460,7 +457,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        text=f"{get_size(file.file_size)} ⊳ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}",
+                        text=f"▫️ {get_size(file.file_size)} ⊳ {file.file_name}",
                         url=await get_shortlink(
                             message.chat.id,
                             f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}",
@@ -473,7 +470,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             else [
                 [
                     InlineKeyboardButton(
-                        text=f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}",
+                        text=f"{file.file_name}",
                         url=await get_shortlink(
                             message.chat.id,
                             f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}",
@@ -494,7 +491,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{get_size(file.file_size)} ⊳ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"▫️ {get_size(file.file_size)} ⊳ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -503,7 +500,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}",
+                    text=f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}",
                     callback_data=f'{pre}#{file.file_id}',
                 ),
                 InlineKeyboardButton(
@@ -559,7 +556,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             )
 
     btn.insert(0, [
-        InlineKeyboardButton("Jᴏɪɴ Bᴀᴄᴋᴜᴘ ☑️", url=f'https://t.me/Lusifilms')
+        InlineKeyboardButton("💢 𝐀𝐝𝐝 𝐌𝐞 𝐓𝐨 𝐆𝐫𝐨𝐮𝐩𝐬 💢", url=f'http://t.me/{temp.U_NAME}?startgroup=true')
     ])
     offset = 0
 
@@ -793,7 +790,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if not files_:
             return await query.answer('Nᴏ sᴜᴄʜ ғɪʟᴇ ᴇxɪsᴛ.')
         files = files_[0]
-        title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), files.file_name.split()))
+        title = files.file_name
         size = get_size(files.file_size)
         f_caption = files.caption
         settings = await get_settings(query.message.chat.id)
@@ -806,7 +803,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 logger.exception(e)
             f_caption = f_caption
         if f_caption is None:
-            f_caption = f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}"
+            f_caption = f"{files.file_name}"
 
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
@@ -827,7 +824,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                           InlineKeyboardButton('🇮🇳 ʜɪɴ', callback_data='hindi'),
                           InlineKeyboardButton('🇮🇳 ᴛᴀᴍ', callback_data='tamil')
                         ],[                         
-                          InlineKeyboardButton("b", url='t.me/Lusifilms')
+                          InlineKeyboardButton("b", url='t.me/CKTalkies')
                         ]]
                     )
                 )
@@ -872,7 +869,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if not files_:
             return await query.answer('Nᴏ sᴜᴄʜ ғɪʟᴇ ᴇxɪsᴛ.')
         files = files_[0]
-        title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), files.file_name.split()))
+        title = files.file_name
         size = get_size(files.file_size)
         f_caption = files.caption
         if CUSTOM_FILE_CAPTION:
@@ -886,16 +883,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if f_caption is None:
             f_caption = f"{title}"
         await query.answer()
-        # Create the inline keyboard button with callback_data
-        button = InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
-        # Create the inline keyboard markup with the button
-        keyboard = InlineKeyboardMarkup([[button]])
         await client.send_cached_media(
             chat_id=query.from_user.id,
             file_id=file_id,
             caption=f_caption,
-            reply_markup=keyboard,
-            protect_content=True if ident == 'checksubp' else False
+            protect_content=True if ident == 'checksubp' else False,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                  InlineKeyboardButton("❤️‍🔥 ᴍᴏᴠɪᴇs​ ❤️‍🔥", url='https://t.me/Movies_Corner20')
+                 ]
+                ]
+            )
         )
     elif query.data == "pages":
         await query.answer()
@@ -1361,7 +1360,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "start":
         buttons = [[
             InlineKeyboardButton('〆 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 〆', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[     
+            ],[
+            InlineKeyboardButton('🔍 sᴇᴀʀᴄʜ​', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('👨‍💻 ᴅᴇᴠ​', callback_data='owner_info')
+            ],[      
             InlineKeyboardButton('🎭 ʜᴇʟᴘ 🎭', callback_data='help2'),
             InlineKeyboardButton('♻️ ᴀʙᴏᴜᴛ ♻️', callback_data='about')
             ],[
@@ -1424,7 +1426,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "money_bot":
         buttons = [[
-            InlineKeyboardButton('ᴄᴏɴᴛᴀᴄᴛ sᴜᴘᴘᴏʀᴛ', url='https://t.me/Apnamovie4')
+            InlineKeyboardButton('ᴄᴏɴᴛᴀᴄᴛ sᴜᴘᴘᴏʀᴛ', url='https://t.me/Request_Corner1')
         ],[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ', callback_data='start'),
             InlineKeyboardButton('ᴄʟᴏsᴇ ⊝', callback_data='close_data')
@@ -1560,6 +1562,44 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+    elif query.data.startswith("generate_stream_link"):
+        _, file_id = query.data.split(":")
+        try:
+            user_id = query.from_user.id
+            username =  query.from_user.mention 
+
+            log_msg = await client.send_cached_media(
+                chat_id=LOG_CHANNEL,
+                file_id=file_id,
+            )
+            fileName = {quote_plus(get_name(log_msg))}
+            lazy_stream = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+            lazy_download = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+
+            xo = await query.message.reply_text(f'🔐')
+            await asyncio.sleep(1)
+            await xo.delete()
+
+            await log_msg.reply_text(
+                text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
+                quote=True,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("web Download", url=lazy_download),  # we download Link
+                                                    InlineKeyboardButton('▶Stream online', url=lazy_stream)]])  # web stream Link
+            )
+            await query.message.reply_text(
+                text="•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ☠︎⚔",
+                quote=True,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("web Download", url=lazy_download),  # we download Link
+                                                    InlineKeyboardButton('▶Stream online', url=lazy_stream)]])  # web stream Link
+            )
+        except Exception as e:
+            print(e)  # print the error message
+            await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
+            return
+
+
     elif query.data == "autofilter":
         buttons = [[
             InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='filters')
@@ -1609,7 +1649,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if query.from_user.id in ADMINS:
             await query.message.edit_text(text=script.ADMIN_TXT, reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
         else:
-            await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nIᴛꜱ ᴏɴʟʏ ғᴏʀ ᴍʏ ADMINS\n\n©Lusifilms", show_alert=True)
+            await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nIᴛꜱ ᴏɴʟʏ ғᴏʀ ᴍʏ ADMINS\n\n©ᴍʟᴢ ʙᴏᴛᴢ", show_alert=True)
 
     elif query.data == "stats":
         buttons = [[           
@@ -1826,7 +1866,7 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"{get_size(file.file_size)} ⊳ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        text=f"▫️ {get_size(file.file_size)} ⊳ {file.file_name}", url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
                     ),
                 ]
                 for file in files
@@ -1835,7 +1875,7 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}",
+                        text=f"{file.file_name}",
                         url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
                     ),
                     InlineKeyboardButton(
@@ -1850,7 +1890,7 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"{get_size(file.file_size)} ⊳ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
+                        text=f"▫️ {get_size(file.file_size)} ⊳ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
                     ),
                 ]
                 for file in files
@@ -1859,7 +1899,7 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}",
+                        text=f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}",
                         callback_data=f'{pre}#{file.file_id}',
                     ),
                     InlineKeyboardButton(
@@ -1914,7 +1954,7 @@ async def auto_filter(client, msg, spoll=False):
             )
 
     btn.insert(0, [
-        InlineKeyboardButton(f'Jᴏɪɴ Bᴀᴄᴋᴜᴘ ☑️', url=f'https://t.me/Lusifilms')
+        InlineKeyboardButton(f'🔍 {search} 🔎', 'reqst1')
     ])
    # await message.delete()
     #m=await message.reply_text("🔍") 
@@ -1996,7 +2036,7 @@ async def auto_filter(client, msg, spoll=False):
                     text=f"<b>Hᴇʏ {message.from_user.mention}\n\n{str(total_results)} Rᴇsᴜʟᴛs Aʀᴇ Aʟʀᴇᴀᴅʏ Aᴠᴀɪʟᴀʙʟᴇ Bᴜᴛ I Cᴀɴ'ᴛ Gɪᴠᴇ Fɪʟᴇꜱ,\nBᴇᴄᴀᴜꜱᴇ Tʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ\nPʟᴇᴀꜱᴇ Rᴇǫᴜᴇꜱᴛ Oɴ Oᴜʀ Mᴏᴠɪᴇ Gʀᴏᴜᴘ</b>",
                     reply_markup=InlineKeyboardMarkup(
                         [[
-                            InlineKeyboardButton('📌 Rᴇǫᴜᴇꜱᴛ Hᴇʀᴇ', url ='https://t.me/Apnamovie4')
+                            InlineKeyboardButton('📌 Rᴇǫᴜᴇꜱᴛ Hᴇʀᴇ', url ='https://t.me/+IUtJOsISPsszYmJl')
                         ]]
                     )
                 )
@@ -2029,7 +2069,7 @@ async def auto_filter(client, msg, spoll=False):
                     text=f"<b>Hᴇʏ {message.from_user.mention}\n\n{str(total_results)} Rᴇsᴜʟᴛs Aʀᴇ Aʟʀᴇᴀᴅʏ Aᴠᴀɪʟᴀʙʟᴇ Bᴜᴛ I Cᴀɴ'ᴛ Gɪᴠᴇ Fɪʟᴇꜱ,\nBᴇᴄᴀᴜꜱᴇ Tʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ\nPʟᴇᴀꜱᴇ Rᴇǫᴜᴇꜱᴛ Oɴ Oᴜʀ Mᴏᴠɪᴇ Gʀᴏᴜᴘ</b>",
                     reply_markup=InlineKeyboardMarkup(
                         [[
-                            InlineKeyboardButton('📌 Rᴇǫᴜᴇꜱᴛ Hᴇʀᴇ', url ='https://t.me/Apnamovie4')
+                            InlineKeyboardButton('📌 Rᴇǫᴜᴇꜱᴛ Hᴇʀᴇ', url ='https://t.me/+IUtJOsISPsszYmJl')
                         ]]
                     )
                 )
@@ -2064,7 +2104,7 @@ async def auto_filter(client, msg, spoll=False):
                     text=f"<b>Hᴇʏ {message.from_user.mention}\n\n{str(total_results)} Rᴇsᴜʟᴛs Aʀᴇ Aʟʀᴇᴀᴅʏ Aᴠᴀɪʟᴀʙʟᴇ Bᴜᴛ I Cᴀɴ'ᴛ Gɪᴠᴇ Fɪʟᴇꜱ,\nBᴇᴄᴀᴜꜱᴇ Tʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ\nPʟᴇᴀꜱᴇ Rᴇǫᴜᴇꜱᴛ Oɴ Oᴜʀ Mᴏᴠɪᴇ Gʀᴏᴜᴘ</b>",
                     reply_markup=InlineKeyboardMarkup(
                         [[
-                           InlineKeyboardButton('📌 Rᴇǫᴜᴇꜱᴛ Hᴇʀᴇ', url ='https://t.me/Apnamovie4')
+                           InlineKeyboardButton('📌 Rᴇǫᴜᴇꜱᴛ Hᴇʀᴇ', url ='https://t.me/+IUtJOsISPsszYmJl')
                         ]]
                     )
                 )
@@ -2098,7 +2138,7 @@ async def auto_filter(client, msg, spoll=False):
                 text=f"<b>Hᴇʏ {message.from_user.mention}\n\n{str(total_results)} Rᴇsᴜʟᴛs Aʀᴇ Aʟʀᴇᴀᴅʏ Aᴠᴀɪʟᴀʙʟᴇ Bᴜᴛ I Cᴀɴ'ᴛ Gɪᴠᴇ Fɪʟᴇꜱ,\nBᴇᴄᴀᴜꜱᴇ Tʜɪs ɪs ᴀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ\nPʟᴇᴀꜱᴇ Rᴇǫᴜᴇꜱᴛ Oɴ Oᴜʀ Mᴏᴠɪᴇ Gʀᴏᴜᴘ</b>",
                 reply_markup=InlineKeyboardMarkup(
                     [[
-                        InlineKeyboardButton('📌 Rᴇǫᴜᴇꜱᴛ Hᴇʀᴇ', url ='https://t.me/apnamovie4')
+                        InlineKeyboardButton('📌 Rᴇǫᴜᴇꜱᴛ Hᴇʀᴇ', url ='https://t.me/+IUtJOsISPsszYmJl')
                     ]]
                 )
             )
