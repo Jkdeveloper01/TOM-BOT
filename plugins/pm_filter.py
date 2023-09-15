@@ -91,7 +91,7 @@ async def give_filter(client, message):
                 reply_markup=reply_markup,
                 parse_mode=enums.ParseMode.HTML
             )
-            await asyncio.sleep(,86400)
+            await asyncio.sleep(86400)
             await k.delete()
             try:
                 await message.delete()
