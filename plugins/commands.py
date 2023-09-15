@@ -25,8 +25,8 @@ async def start(client, message):
         buttons = [[
                     InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                   ],[
-                    InlineKeyboardButton('Uᴘᴅᴀᴛᴇs', url='https://t.me/Lusifilms'),
-                    InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ', url='https://t.me/Apnamovie4')
+                    InlineKeyboardButton('Uᴘᴅᴀᴛᴇs', url=S_GROUP),
+                    InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ', url=MAIN_CHANNEL)
                   ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         kd = await message.reply_photo(
@@ -129,7 +129,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [                         
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')                         
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)                         
                          ]
                         ]
                     )
@@ -145,7 +145,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')   
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)   
                          ]
                         ]
                     )
@@ -244,9 +244,9 @@ async def start(client, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                          [
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)
                          ],[
-                         InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{files.file_id}')
+                         InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file.file_id}')
                          ]
                         ]
                     )
@@ -296,9 +296,9 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
              [
-              InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')  
+              InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)  
              ],[
-             InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{files.file_id}')
+             InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file.file_id}')
              ]
               ]
        )
