@@ -246,7 +246,7 @@ async def start(client, message):
                          [
                           InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)
                          ],[
-                         InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file.file_id}')
+                         InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
                          ]
                         ]
                     )
@@ -298,7 +298,7 @@ async def start(client, message):
              [
               InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)  
              ],[
-             InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file.file_id}')
+             InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
              ]
               ]
        )
