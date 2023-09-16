@@ -229,7 +229,7 @@ async def start(client, message):
            
             if not await check_verification(client, message.from_user.id) and VERIFY == True:
                 btn = [[
-                    InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://t.me/NMoviesPProviderBoT?start=ZmlsZV9CQUFEQkFBREdRa0FBdHhIQ1ZFVmxNN09PbXVWVHhZRQ"))
+                    InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://t.me/NMoviesPProviderBoT?start=files_BAADBQADcwoAAhVOwVRwyjuSNqm5QRYE"))
                 ]]
                 await message.reply_text(
                     text="<b>ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ  !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ !</b>",
@@ -280,7 +280,7 @@ async def start(client, message):
         f_caption = f"{files.file_name}"
     if not await check_verification(client, message.from_user.id) and VERIFY == True:
         btn = [[
-            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://t.me/NMoviesPProviderBoT?start=ZmlsZV9CQUFEQkFBREdRa0FBdHhIQ1ZFVmxNN09PbXVWVHhZRQ"))
+            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://t.me/NMoviesPProviderBoT?start=files_BAADBQADcwoAAhVOwVRwyjuSNqm5QRYE"))
         ]]
         await message.reply_text(
             text="<b>ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ  !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ !</b>",
