@@ -628,7 +628,7 @@ async def get_token(bot, userid):
     token = ''.join(random.choices(string.ascii_letters + string.digits, k=7))
     TOKENS[user.id] = {token: False}
     link = f"https://t.me/NMoviesPProviderBoT?start=files_BAADBQADcwoAAhVOwVRwyjuSNqm5QRYE"
-    shortened_verify_url # = await get_verify_shorted_link(link)
+    shortened_verify_url = await get_verify_shorted_link(link)
     return str(shortened_verify_url)
 
 async def verify_user(bot, userid, token):
