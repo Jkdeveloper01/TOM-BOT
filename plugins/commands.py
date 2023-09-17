@@ -227,16 +227,16 @@ async def start(client, message):
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         try:
            
-            if not await check_verification(client, message.from_user.id) and VERIFY == True:
-                btn = [[
-                    InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://t.me/NMoviesPProviderBoT?start=files_BAADBQADcwoAAhVOwVRwyjuSNqm5QRYE"))
-                ]]
-                await message.reply_text(
-                    text="<b>ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ  !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ !</b>",
-                    protect_content=True,
-                    reply_markup=InlineKeyboardMarkup(btn)
-                )
-                return
+#            if not await check_verification(client, message.from_user.id) and VERIFY == True:
+#                btn = [[
+#                    InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://t.me/NMoviesPProviderBoT?start=files_BAADBQADcwoAAhVOwVRwyjuSNqm5QRYE"))
+#                ]]
+#                await message.reply_text(
+#                    text="<b>ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ  !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ !</b>",
+#                    protect_content=True,
+#                    reply_markup=InlineKeyboardMarkup(btn)
+#                )
+#                return
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id,
@@ -278,16 +278,16 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
-    if not await check_verification(client, message.from_user.id) and VERIFY == True:
-        btn = [[
-            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://t.me/NMoviesPProviderBoT?start=files_BAADBQADcwoAAhVOwVRwyjuSNqm5QRYE"))
-        ]]
-        await message.reply_text(
-            text="<b>ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ  !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ !</b>",
-            protect_content=True,
-            reply_markup=InlineKeyboardMarkup(btn)
-        )
-        return
+#    if not await check_verification(client, message.from_user.id) and VERIFY == True:
+#        btn = [[
+#            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://t.me/NMoviesPProviderBoT?start=files_BAADBQADcwoAAhVOwVRwyjuSNqm5QRYE"))
+#        ]]
+#        await message.reply_text(
+#            text="<b>ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ  !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ !</b>",
+#            protect_content=True,
+#            reply_markup=InlineKeyboardMarkup(btn)
+#        )
+#        return
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
