@@ -457,7 +457,6 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     if ENABLE_SHORTLINK == True:
         btn = [
             [
-                [
                     InlineKeyboardButton(
                         text=f"▫️ {get_size(file.file_size)} ⊳ {file.file_name}",
                         f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}",
