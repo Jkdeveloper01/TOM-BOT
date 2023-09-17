@@ -455,7 +455,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         ENABLE_SHORTLINK = False
     pre = 'filep' if settings['file_secure'] else 'file'
     if ENABLE_SHORTLINK == True:
-        btn = (
+        btn = [
             [
                 [
                     InlineKeyboardButton(
