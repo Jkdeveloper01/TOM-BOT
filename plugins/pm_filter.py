@@ -1577,15 +1577,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data.startswith("generate_stream_link"):
         _, file_id = query.data.split(":")
         try:
-    await check_verification(client, message.from_user.id) and VERIFY == True:
-                await message.reply_text(
-                    text="<b>ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ  !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ !</b>",
-                quote=True,
-                disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[
-                    InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
-                ]])
-#                  return
             user_id = query.from_user.id
             username =  query.from_user.mention 
 
