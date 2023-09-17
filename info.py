@@ -20,6 +20,8 @@ API_ID = int(environ['API_ID'])
 API_HASH = environ['API_HASH']
 BOT_TOKEN = environ['BOT_TOKEN']
 
+jk_grp = environ.get('JK_GRP', '-1001545441690')
+JK_GRP = [int(jk_grp) for jk_grp in jk_grp.split()] if jk_grp else None # ADD GROUP ID IN THIS VARIABLE
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
