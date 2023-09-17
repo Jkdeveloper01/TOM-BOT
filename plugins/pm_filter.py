@@ -482,7 +482,6 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
                 ]
                 for file in files
             ]
-        )
     elif settings["button"]:
         btn = [
             [
