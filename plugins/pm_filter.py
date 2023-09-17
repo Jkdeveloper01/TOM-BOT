@@ -195,6 +195,25 @@ async def next_page(bot, query):
                 ]
                 for file in files
             ]
+    elif query.message.chat.id is not None and query.message.chat.id in JK_GRP:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                            text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
+                    ),
+                ]
+                for file in files
+            ]
+        else:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"[{get_size(file.file_size)}] {file.file_name}", 
+                        url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                ]
+                for file in files
+            ]
     else:
         if settings['button']:
             btn = [
@@ -489,6 +508,25 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
                 for file in files
             ]
         )
+    elif query.message.chat.id is not None and query.message.chat.id in JK_GRP:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                            text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
+                    ),
+                ]
+                for file in files
+            ]
+        else:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"[{get_size(file.file_size)}] {file.file_name}", 
+                        url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                ]
+                for file in files
+            ]
     elif settings["button"]:
         btn = [
             [
@@ -1882,6 +1920,25 @@ async def auto_filter(client, msg, spoll=False):
                     InlineKeyboardButton(
                         text=f"{get_size(file.file_size)}",
                         url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                    ),
+                ]
+                for file in files
+            ]
+    elif query.message.chat.id is not None and query.message.chat.id in JK_GRP:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                            text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
+                    ),
+                ]
+                for file in files
+            ]
+        else:
+            btn = [
+                [
+                    InlineKeyboardButton(
+                        text=f"[{get_size(file.file_size)}] {file.file_name}", 
+                        url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
                     ),
                 ]
                 for file in files
