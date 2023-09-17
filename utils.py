@@ -620,7 +620,7 @@ async def check_token(bot, userid, token):
     else:
         return False
 
-async def get_token(bot, userid):
+async def get_token(bot, userid, link):
     user = await bot.get_users(userid)
     if not await db.is_user_exist(user.id):
         await db.add_user(user.id, user.first_name)
