@@ -1595,7 +1595,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 📥", url=lazy_download),  # we download Link
-                                                    InlineKeyboardButton('📺 𝙊𝙣𝙡𝙞𝙣𝙚 𝙎𝙩𝙧𝙚𝙖𝙢 📺', url=lazy_stream)]])  # web stream Link
+                                                    InlineKeyboardButton('📺 𝙊𝙣𝙡𝙞𝙣𝙚 𝙎𝙩𝙧𝙚𝙖𝙢 📺', url=lazy_stream)]]),  # web stream Link
+                                              parse_mode=enums.ParseMode.HTML
             )
         except Exception as e:
 #            print(e)  # print the error message
