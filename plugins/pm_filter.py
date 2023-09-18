@@ -1576,8 +1576,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 file_id=file_id,
             )
             fileName = {quote_plus(get_name(log_msg))}
-            lazy_stream = url=await get_shortlink(f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}")
-            lazy_download = url=await get_shortlink(f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}")
+            lazy_stream = url=await get_shortlink(query.message.chat.id, f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}")
+            lazy_download = url=await get_shortlink(query.message.chat.id, f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}")
 
             xo = await query.message.reply_text(f'🔐')
             await asyncio.sleep(1)
