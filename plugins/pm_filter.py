@@ -1591,15 +1591,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
                                                     InlineKeyboardButton('𝙊𝙣𝙡𝙞𝙣𝙚 𝙎𝙩𝙧𝙚𝙖𝙢', url=lazy_stream)]])  # web stream Link
             )
             await query.message.reply_video(
-                video=f'https://telegra.ph/file/f7f2a532fe4b990044507.mp4', caption=f"════════※ ·❆· ※════════\n      📥𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 𝗦𝘂𝗽𝗽𝗼𝗿𝘁\n\n‣𝘊𝘩𝘳𝘰𝘮𝘦 ‣𝘜𝘊 𝘉𝘳𝘰𝘸𝘴𝘦𝘳\n\n‣𝘍𝘪𝘳𝘦𝘍𝘰𝘹 ‣𝘖𝘱𝘦𝘳𝘢 𝘔𝘪𝘯𝘪\n\n👉𝘚𝘶𝘱𝘱𝘰𝘳𝘵 𝘈𝘭𝘭 𝘉𝘳𝘰𝘸𝘴𝘦𝘳𝘴👈\n\n════════※ ·❆· ※════════\n\n            📺𝙋𝙡𝙖𝙮 𝗦𝘂𝗽𝗽𝗼𝗿𝘁📺\n\n‣ 𝘔𝘹 𝘗𝘭𝘢𝘺𝘦𝘳   ‣ 𝘗𝘭𝘢𝘺-𝘪𝘵\n\n‣ 𝘝𝘓𝘊 𝘗𝘭𝘢𝘺𝘦𝘳  ‣ 𝘚 𝘗𝘭𝘢𝘺𝘦𝘳\n\n‣ 𝘒𝘔 𝘗𝘭𝘢𝘺𝘦𝘳  ‣ 𝘏𝘋 𝘗𝘭𝘢𝘺𝘦𝘳 (4𝘒)",
+                video='https://telegra.ph/file/f7f2a532fe4b990044507.mp4', caption="════════※ ·❆· ※════════\n      📥𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 𝗦𝘂𝗽𝗽𝗼𝗿𝘁\n\n‣𝘊𝘩𝘳𝘰𝘮𝘦 ‣𝘜𝘊 𝘉𝘳𝘰𝘸𝘴𝘦𝘳\n\n‣𝘍𝘪𝘳𝘦𝘍𝘰𝘹 ‣𝘖𝘱𝘦𝘳𝘢 𝘔𝘪𝘯𝘪\n\n👉𝘚𝘶𝘱𝘱𝘰𝘳𝘵 𝘈𝘭𝘭 𝘉𝘳𝘰𝘸𝘴𝘦𝘳𝘴👈\n\n════════※ ·❆· ※════════\n\n            📺𝙋𝙡𝙖𝙮 𝗦𝘂𝗽𝗽𝗼𝗿𝘁📺\n\n‣ 𝘔𝘹 𝘗𝘭𝘢𝘺𝘦𝘳   ‣ 𝘗𝘭𝘢𝘺-𝘪𝘵\n\n‣ 𝘝𝘓𝘊 𝘗𝘭𝘢𝘺𝘦𝘳  ‣ 𝘚 𝘗𝘭𝘢𝘺𝘦𝘳\n\n‣ 𝘒𝘔 𝘗𝘭𝘢𝘺𝘦𝘳  ‣ 𝘏𝘋 𝘗𝘭𝘢𝘺𝘦𝘳 (4𝘒)",
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 📥", url=lazy_download),  # we download Link
                                                     InlineKeyboardButton('📺 𝙊𝙣𝙡𝙞𝙣𝙚 𝙎𝙩𝙧𝙚𝙖𝙢 📺', url=lazy_stream)]])  # web stream Link
             )
         except Exception as e:
-#            print(e)  # print the error message
-#            await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
+            print(e)  # print the error message
+            await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
             return
 
     elif query.data == "coct":
