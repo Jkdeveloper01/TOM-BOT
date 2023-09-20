@@ -129,7 +129,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [                         
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')                         
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url="https://t.me/Lusifilms")                         
                          ]
                         ]
                     )
@@ -145,7 +145,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')   
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url="https://t.me/Lusifilms")   
                          ]
                         ]
                     )
@@ -243,7 +243,7 @@ async def start(client, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                          [
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')   
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url="https://t.me/Lusifilms")   
                          ]
                         ]
                     )
@@ -293,7 +293,7 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
              [
-              InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url='https://t.me/Lusifilms')   
+              InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url="https://t.me/Lusifilms")   
              ]
               ]
        )
