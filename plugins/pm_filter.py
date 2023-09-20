@@ -25,9 +25,7 @@ from database.filters_mdb import (
     find_filter,
     get_filters,
 )
-from util.human_readable import humanbytes
-from urllib.parse import quote_plus
-from util.file_properties import get_name, get_hash, get_media_file_size
+
 from database.gfilters_mdb import (
     find_gfilter,
     get_gfilters,
