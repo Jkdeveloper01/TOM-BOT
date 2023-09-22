@@ -244,9 +244,9 @@ async def start(client, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                          [
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)
-                         ],[
-                         InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
+#                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)
+#                         ],[
+                         InlineKeyboardButton('𝗙𝗮𝘀𝘁 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 📥 | 𝗣𝗹𝗮𝘆 𝗢𝗻𝗹𝗶𝗻𝗲 ▶️', callback_data=f'generate_stream_link:{file_id}')
                          ]
                         ]
                     )
@@ -296,9 +296,9 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
              [
-              InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)  
-             ],[
-             InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
+#              InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)  
+#             ],[
+             InlineKeyboardButton('𝗙𝗮𝘀𝘁 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 📥 | 𝗣𝗹𝗮𝘆 𝗢𝗻𝗹𝗶𝗻𝗲 ▶️', callback_data=f'generate_stream_link:{file_id}')
              ]
               ]
        )
