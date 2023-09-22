@@ -25,7 +25,9 @@ from database.filters_mdb import (
     find_filter,
     get_filters,
 )
-
+from util.human_readable import humanbytes
+from urllib.parse import quote_plus
+from util.file_properties import get_name, get_hash, get_media_file_size
 from database.gfilters_mdb import (
     find_gfilter,
     get_gfilters,
@@ -175,7 +177,7 @@ async def next_page(bot, query):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"▫️ {get_size(file.file_size)} ⊳ {file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        text=f"▫️ {get_size(file.file_size)} ⊳ {file.file_name}", url=f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}"
                     ),
                 ]
                 for file in files
@@ -184,11 +186,11 @@ async def next_page(bot, query):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"{file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        text=f"{file.file_name}", url=f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}"
                     ),
                     InlineKeyboardButton(
                         text=f"{get_size(file.file_size)}",
-                        url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        url=f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}"
                     ),
                 ]
                 for file in files
@@ -458,10 +460,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         text=f"▫️ {get_size(file.file_size)} ⊳ {file.file_name}",
-                        url=await get_shortlink(
-                            message.chat.id,
-                            f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}",
-                        ),
+                        url=f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}",
                     ),
                 ]
                 for file in files
@@ -471,17 +470,11 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         text=f"{file.file_name}",
-                        url=await get_shortlink(
-                            message.chat.id,
-                            f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}",
-                        ),
+                        url=f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}",
                     ),
                     InlineKeyboardButton(
                         text=f"{get_size(file.file_size)}",
-                        url=await get_shortlink(
-                            message.chat.id,
-                            f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}",
-                        ),
+                        url=f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}",
                     ),
                 ]
                 for file in files
@@ -1583,8 +1576,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 file_id=file_id,
             )
             fileName = {quote_plus(get_name(log_msg))}
-            lazy_stream = url=await get_shortlink(f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}")
-            lazy_download = url=await get_shortlink(f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}")
+            lazy_stream = url=await get_shortlink(query.message.chat.id, f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}")
+            lazy_download = url=await get_shortlink(query.message.chat.id, f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}")
 
             xo = await query.message.reply_text(f'🔐')
             await asyncio.sleep(1)
@@ -1594,19 +1587,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
                 quote=True,
                 disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("web Download", url=lazy_download),  # we download Link
-                                                    InlineKeyboardButton('▶Stream online', url=lazy_stream)]])  # web stream Link
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fᴀꜱᴛ Dᴏᴡɴʟᴏᴀᴅ 📥", url=lazy_download),  # we download Link
+                                                    InlineKeyboardButton('Oɴʟɪɴᴇ Sᴛʀᴇᴀᴍ ▶️', url=lazy_stream)]])  # web stream Link
             )
-            await query.message.reply_text(
-                text="•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ☠︎⚔",
+            await query.message.reply_video(
+                video=(STREAM_VID), caption=(STREAM_CAP),
                 quote=True,
-                disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("web Download", url=lazy_download),  # we download Link
-                                                    InlineKeyboardButton('▶Stream online', url=lazy_stream)]])  # web stream Link
+#                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fᴀꜱᴛ Dᴏᴡɴʟᴏᴀᴅ 📥", url=lazy_download),  # we download Link
+                                                    InlineKeyboardButton('Oɴʟɪɴᴇ Sᴛʀᴇᴀᴍ ▶️', url=lazy_stream)
+                                                    ]]),  # web stream Link
+                parse_mode=enums.ParseMode.HTML
             )
         except Exception as e:
-#            print(e)  # print the error message
-#            await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
+            print(e)  # print the error message
+            await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
             return
 
     elif query.data == "coct":
@@ -1865,7 +1860,7 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"▫️ {get_size(file.file_size)} ⊳ {file.file_name}", url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        text=f"▫️ {get_size(file.file_size)} ⊳ {file.file_name}", url=f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}"
                     ),
                 ]
                 for file in files
@@ -1875,11 +1870,11 @@ async def auto_filter(client, msg, spoll=False):
                 [
                     InlineKeyboardButton(
                         text=f"{file.file_name}",
-                        url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        url=f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}"
                     ),
                     InlineKeyboardButton(
                         text=f"{get_size(file.file_size)}",
-                        url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        url=f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}"
                     ),
                 ]
                 for file in files
