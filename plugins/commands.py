@@ -8,7 +8,7 @@ from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id, get_bad_files
 from database.users_chats_db import db
-from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, CHNL_LNK, GRP_LNK, REQST_CHANNEL, SUPPORT_CHAT_ID, MAX_B_TN, VERIFY
+from info import *
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp, verify_user, check_token, check_verification, get_token
 from database.connections_mdb import active_connection
 from plugins.fsub import ForceSub
@@ -25,8 +25,8 @@ async def start(client, message):
         buttons = [[
                     InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                   ],[
-                    InlineKeyboardButton('Uᴘᴅᴀᴛᴇs', url='https://t.me/Lusifilms'),
-                    InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ', url='https://t.me/Apnamovie4')
+                    InlineKeyboardButton('Uᴘᴅᴀᴛᴇs', url=S_GROUP),
+                    InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ', url=MAIN_CHANNEL)
                   ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         kd = await message.reply_photo(
@@ -129,7 +129,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [                         
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url="https://t.me/Lusifilms")                         
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)                         
                          ]
                         ]
                     )
@@ -145,7 +145,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url="https://t.me/Lusifilms")   
+                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)   
                          ]
                         ]
                     )
@@ -226,9 +226,10 @@ async def start(client, message):
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         try:
+           
             if not await check_verification(client, message.from_user.id) and VERIFY == True:
                 btn = [[
-                    InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
+                    InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://t.me/{temp.U_NAME}?start="))
                 ]]
                 await message.reply_text(
                     text="<b>ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ  !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ !</b>",
@@ -243,7 +244,9 @@ async def start(client, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                          [
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url="https://t.me/Lusifilms")   
+#                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)
+#                         ],[
+                         InlineKeyboardButton('𝗙𝗮𝘀𝘁 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 📥 | 𝗣𝗹𝗮𝘆 𝗢𝗻𝗹𝗶𝗻𝗲 ▶️', callback_data=f'generate_stream_link:{file_id}')
                          ]
                         ]
                     )
@@ -277,7 +280,7 @@ async def start(client, message):
         f_caption = f"{files.file_name}"
     if not await check_verification(client, message.from_user.id) and VERIFY == True:
         btn = [[
-            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
+            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://t.me/{temp.U_NAME}?start="))
         ]]
         await message.reply_text(
             text="<b>ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴠᴇʀɪꜰɪᴇᴅ  !\nᴋɪɴᴅʟʏ ᴠᴇʀɪꜰʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ !</b>",
@@ -293,7 +296,9 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
              [
-              InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url="https://t.me/Lusifilms")   
+#              InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)  
+#             ],[
+             InlineKeyboardButton('𝗙𝗮𝘀𝘁 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 📥 | 𝗣𝗹𝗮𝘆 𝗢𝗻𝗹𝗶𝗻𝗲 ▶️', callback_data=f'generate_stream_link:{file_id}')
              ]
               ]
        )
