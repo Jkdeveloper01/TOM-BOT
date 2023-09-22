@@ -121,6 +121,9 @@ PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
 
 LANGUAGES = ["malayalam", "tamil", "english", "hindi", "telugu", "kannada"]
 
+STREAM_VID = environ.get("STREAM_VID", "https://telegra.ph/file/1e9702174eb46fd737b81.mp4")
+STREAM_CAP = environ.get("STREAM_CAP", f"{script.STREAM_CAP}")
+
 # Online Stream and Download
 PORT = int(environ.get('PORT', 8080))
 NO_PORT = bool(environ.get('NO_PORT', False))
