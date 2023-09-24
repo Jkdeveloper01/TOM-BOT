@@ -118,7 +118,7 @@ PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
 
 LANGUAGES = ["malayalam", "tamil", "english", "hindi", "telugu", "kannada"]
 
-STREAM_PIC = environ.get("STREAM_VID", "https://telegra.ph/file/e90020b615a89a63799e8.jpg")
+STREAM_PIC = environ.get("STREAM_VID", "https://telegra.ph/file/bc0222cfb06a8cf16e6b5.jpg")
 STREAM_CAP = environ.get("STREAM_CAP", f"{script.STREAM_CAP}")
 
 # Online Stream and Download
