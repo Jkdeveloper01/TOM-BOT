@@ -1864,6 +1864,7 @@ async def auto_filter(client, msg, spoll=False):
                        ]
                     )
                  )
+        await m.delete()
     settings = await get_settings(message.chat.id)
     if 'is_shortlink' in settings.keys():
         ENABLE_SHORTLINK = settings['is_shortlink']
