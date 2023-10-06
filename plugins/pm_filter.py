@@ -1855,7 +1855,7 @@ async def auto_filter(client, msg, spoll=False):
     else:
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
-        m=await message.reply_sticker(sticker="CAACAgIAAxkBAAEHH7dlEuEfd7LaO2Z0LeDTHvApj3RzjwACdxgAAqPjKEmMVSFmXGLogR4E",
+        mm=await message.reply_sticker(sticker="CAACAgIAAxkBAAEHH7dlEuEfd7LaO2Z0LeDTHvApj3RzjwACdxgAAqPjKEmMVSFmXGLogR4E",
         reply_markup=InlineKeyboardMarkup(
                        [
                         [
@@ -1865,7 +1865,7 @@ async def auto_filter(client, msg, spoll=False):
                     )
                  )
     settings = await get_settings(message.chat.id)
-    await msg.message.delete()
+    await mm.delete()
     if 'is_shortlink' in settings.keys():
         ENABLE_SHORTLINK = settings['is_shortlink']
     else:
