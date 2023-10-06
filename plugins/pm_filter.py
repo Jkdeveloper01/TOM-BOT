@@ -1832,20 +1832,40 @@ async def auto_filter(client, msg, spoll=False):
             return
         if len(message.text) < 100:
             search = message.text
+            m=await message.reply_sticker(sticker="CAACAgIAAxkBAAEHH7dlEuEfd7LaO2Z0LeDTHvApj3RzjwACdxgAAqPjKEmMVSFmXGLogR4E",
+            reply_markup=InlineKeyboardMarkup(
+                       [
+                        [
+                        InlineKeyboardButton('🅿︎🅻︎🅴︎🅰︎🆂︎🅴︎ 🆆︎🅰︎🅸︎🆃︎', url=f'https://t.me/lusifilms')
+                        ]
+                       ]
+                    )                   
+                 )
             files, offset, total_results = await get_search_results(message.chat.id ,search.lower(), offset=0, filter=True)
             if not files:
+                await m.delete()
                 if settings["spell_check"]:
                     return await advantage_spell_chok(client, msg)
                 else:
-                    if NO_RESULTS_MSG:
-                        await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
+#                    if NO_RESULTS_MSG:
+#                        await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
                     return
         else:
             return
     else:
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
+        m=await message.reply_sticker(sticker="CAACAgIAAxkBAAEHH7dlEuEfd7LaO2Z0LeDTHvApj3RzjwACdxgAAqPjKEmMVSFmXGLogR4E",
+        reply_markup=InlineKeyboardMarkup(
+                       [
+                        [
+                        InlineKeyboardButton('🅿︎🅻︎🅴︎🅰︎🆂︎🅴︎ 🆆︎🅰︎🅸︎🆃︎', url=f'https://t.me/lusifilms')
+                        ]
+                       ]
+                    )
+                 )
     settings = await get_settings(message.chat.id)
+    await msg.message.delete()
     if 'is_shortlink' in settings.keys():
         ENABLE_SHORTLINK = settings['is_shortlink']
     else:
