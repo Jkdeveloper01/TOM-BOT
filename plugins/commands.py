@@ -146,7 +146,7 @@ async def start(client, message):
                         [
                          [
                              InlineKeyboardButton("Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ", url=MAIN_CHANNEL),
-                             InlineKeyboardButton("Mᴏᴠɪᴇ Gʀᴏᴜᴘ", url=GPR_LNK)],
+                             InlineKeyboardButton("Mᴏᴠɪᴇ Gʀᴏᴜᴘ", url=GRP_LNK)],
                             [InlineKeyboardButton("𝖥𝖺𝗌𝗍 𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽 📥 | 𝖮𝗇𝗅𝗂𝗇𝖾 𝖯𝗅𝖺𝗒 ▶️", callback_data=f'generate_stream_link:{file_id}')
                          ]
                         ]
@@ -247,7 +247,7 @@ async def start(client, message):
                     [
                      [
                          InlineKeyboardButton("Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ", url=MAIN_CHANNEL),
-                         InlineKeyboardButton("Mᴏᴠɪᴇ Gʀᴏᴜᴘ", url=GPR_LNK)],
+                         InlineKeyboardButton("Mᴏᴠɪᴇ Gʀᴏᴜᴘ", url=GRP_LNK)],
                         [InlineKeyboardButton("𝖥𝖺𝗌𝗍 𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽 📥 | 𝖮𝗇𝗅𝗂𝗇𝖾 𝖯𝗅𝖺𝗒 ▶️", callback_data=f'generate_stream_link:{file_id}')
                      ]
                    ]
@@ -299,7 +299,7 @@ async def start(client, message):
             [
              [
                  InlineKeyboardButton("Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ", url=MAIN_CHANNEL),
-                 InlineKeyboardButton("Mᴏᴠɪᴇ Gʀᴏᴜᴘ", url=GPR_LNK)],
+                 InlineKeyboardButton("Mᴏᴠɪᴇ Gʀᴏᴜᴘ", url=GRP_LNK)],
                  [InlineKeyboardButton("𝖥𝖺𝗌𝗍 𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽 📥 | 𝖮𝗇𝗅𝗂𝗇𝖾 𝖯𝗅𝖺𝗒 ▶️", callback_data=f'generate_stream_link:{file_id}')
               
              ]
