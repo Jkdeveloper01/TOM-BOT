@@ -145,7 +145,9 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)   
+                             InlineKeyboardButton("Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ", url=MAIN_CHANNEL),
+                             InlineKeyboardButton("Mᴏᴠɪᴇ Gʀᴏᴜᴘ", url=GPR_LNK)],
+                            [InlineKeyboardButton("𝖥𝖺𝗌𝗍 𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽 📥 | 𝖮𝗇𝗅𝗂𝗇𝖾 𝖯𝗅𝖺𝗒 ▶️", callback_data=f'generate_stream_link:{file_id}')
                          ]
                         ]
                     )
@@ -243,12 +245,14 @@ async def start(client, message):
                 protect_content=True if pre == 'filep' else False,
                 reply_markup=InlineKeyboardMarkup(
                     [
-                         [
-                          InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)
-                         ]
-                        ]
-                    )
+                     [
+                         InlineKeyboardButton("Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ", url=MAIN_CHANNEL),
+                         InlineKeyboardButton("Mᴏᴠɪᴇ Gʀᴏᴜᴘ", url=GPR_LNK)],
+                        [InlineKeyboardButton("𝖥𝖺𝗌𝗍 𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽 📥 | 𝖮𝗇𝗅𝗂𝗇𝖾 𝖯𝗅𝖺𝗒 ▶️", callback_data=f'generate_stream_link:{file_id}')
+                     ]
+                   ]
                 )
+             )
             filetype = msg.media
             file = getattr(msg, filetype.value)
             title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith(']') and not x.startswith('{') and not x.startswith('}') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))
@@ -294,9 +298,12 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
              [
-              InlineKeyboardButton("❤️‍🔥 Updates ❤️‍🔥", url=MAIN_CHANNEL)
+                 InlineKeyboardButton("Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ", url=MAIN_CHANNEL),
+                 InlineKeyboardButton("Mᴏᴠɪᴇ Gʀᴏᴜᴘ", url=GPR_LNK)],
+                 [InlineKeyboardButton("𝖥𝖺𝗌𝗍 𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽 📥 | 𝖮𝗇𝗅𝗂𝗇𝖾 𝖯𝗅𝖺𝗒 ▶️", callback_data=f'generate_stream_link:{file_id}')
+              
              ]
-              ]
+            ]
        )
   )
                     
