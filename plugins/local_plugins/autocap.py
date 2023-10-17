@@ -1,5 +1,5 @@
 import logging, asyncio, pyrogram, os
-logging.basicConfig(level=logging.INFO,
+logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 from os import environ
@@ -18,11 +18,11 @@ Client(
     api_hash=API_HASH,
 )
      
-@Client.on_message(filters.command("cstart") & filters.incoming)
+@autocaption.on_message(filters.command("cstart") & filters.incoming)
 async def start(bot, message):
         await message.reply("<I>I Am Auto Caption Bot Just Add me as a Admin in your channel with edit permission and See Magic</I>\n\n• **support** : @Hollywood_0980\n• **Source** : https://github.com/0AIB/TG-Caption-Bot")
 
-@Client.on_message(filters.channel & (filters.document | filters.video | filters.audio ) & ~filters.edited, group=-1)
+@autocaption.on_message(filters.channel & (filters.document | filters.video | filters.audio ) & ~filters.edited, group=-1)
 async def editing(bot, message):
       try:
          media = message.document or message.video or message.audio
