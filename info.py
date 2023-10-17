@@ -14,10 +14,6 @@ def is_enabled(value, default):
     else:
         return default
 
-BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
-API_ID = int(os.environ.get("APP_ID", ""))
-API_HASH = os.environ.get("API_HASH")
-
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ['API_ID'])
