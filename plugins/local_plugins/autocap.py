@@ -4,7 +4,7 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger(__name__)
 from pyrogram.raw import functions, types
 from pyrogram.types import Message, ChatPermissions
-from pyrogram import filters, Client, ContinuePropagation
+from pyrogram import filters, Client, Edited, ContinuePropagation
 from os import environ
 from pyrogram import filters, Client
 from info import BOT_TOKEN, API_ID, API_HASH, CAPTION_TEXT, CAPTION_POSITION
