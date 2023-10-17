@@ -8,7 +8,7 @@ from pyrogram import filters, Client
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 usercaption_position = CAPTION_POSITION
 caption_position = usercaption_position.lower()
-CAPTION_TEXT = os.environ.get("CAPTION_TEXT", "")
+CAPTION_TEXT = os.environ.get("CAPTION_TEXT", "`{file_name}`")
 CAPTION_POSITION = os.environ.get("CAPTION_POSITION", "bottom")
      
 @client.on_message(filters.command("cstart") & filters.incoming)
