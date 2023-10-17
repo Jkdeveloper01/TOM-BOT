@@ -22,6 +22,7 @@ API_HASH = environ['API_HASH']
 BOT_TOKEN = environ['BOT_TOKEN']
 
 CAPTION_POSITION = os.environ.get("CAPTION_POSITION", "bottom")
+CAPTION_TEXT = os.environ.get("CAPTION_TEXT", "`{file_name}`")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
