@@ -4,7 +4,7 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger(__name__)
 from os import environ
 from pyrogram import filters, Client
-#from config import BOT_TOKEN, API_ID, API_HASH, CAPTION_TEXT, CAPTION_POSITION
+from info import CAPTION_POSITION # BOT_TOKEN, API_ID, API_HASH, CAPTION_TEXT, CAPTION_POSITION
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 usercaption_position = CAPTION_POSITION
 caption_position = usercaption_position.lower()
