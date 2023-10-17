@@ -10,6 +10,13 @@ usercaption_position = CAPTION_POSITION
 caption_position = usercaption_position.lower()
 CAPTION_TEXT = os.environ.get("CAPTION_TEXT", "`{file_name}`")
 CAPTION_POSITION = os.environ.get("CAPTION_POSITION", "bottom")
+
+Client(
+    "AutoCaption",
+    bot_token=BOT_TOKEN,
+    api_id=API_ID,
+    api_hash=API_HASH,
+)
      
 @Client.on_message(filters.command("cstart") & filters.incoming)
 async def start(bot, message):
