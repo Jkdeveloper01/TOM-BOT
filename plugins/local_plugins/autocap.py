@@ -54,4 +54,4 @@ async def editing(bot, message):
                  parse_mode = "markdown"
              ) 
       except:
-          pass￼Enter
+          pass
