@@ -2,6 +2,9 @@ import logging, asyncio, pyrogram, os
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+from pyrogram.raw import functions, types
+from pyrogram.types import Message, ChatPermissions
+from pyrogram import filters, Client, ContinuePropagation
 from os import environ
 from pyrogram import filters, Client
 from info import BOT_TOKEN, API_ID, API_HASH, CAPTION_TEXT, CAPTION_POSITION
