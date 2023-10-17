@@ -46,7 +46,7 @@ def edit_caption(bot, update: pyrogram.types.Message):
           try: update.edit(custom_caption.format(file_name=motech.file_name))
           except pyrogram.errors.FloodWait as FloodWait:
               asyncio.sleep(FloodWait.value)
-              update.edit(custom_caption.format(file_name=motech.file_name, mote))
+              update.edit(custom_caption.format(file_name=motech.file_name))
       except pyrogram.errors.MessageNotModified: pass 
   else:
       return
@@ -84,7 +84,7 @@ def start_buttons(bot, update):
 
 def about_buttons(bot, update):
   buttons = [[
-   pyrogram.types.InlineKeyboardButton("🏠 Back To Home 🏠", callback_data="start")
+   pyrogram.types.InlineKeyboardButton("🏠 Back To Home 🏠", callback_data="cstart")
    ]]
   return pyrogram.types.InlineKeyboardMarkup(buttons)
 
