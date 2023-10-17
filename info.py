@@ -1,5 +1,4 @@
 import re
-import os
 from os import environ
 from Script import script
 
@@ -20,9 +19,6 @@ SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ['API_ID'])
 API_HASH = environ['API_HASH']
 BOT_TOKEN = environ['BOT_TOKEN']
-
-CAPTION_POSITION = os.environ.get("CAPTION_POSITION", "bottom")
-CAPTION_TEXT = os.environ.get("CAPTION_TEXT", "`{file_name}`")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
@@ -88,9 +84,6 @@ JOIN_REQS_DB = environ.get("JOIN_REQS_DB", DATABASE_URI)
 group_sub = environ.get('GROUP_SUB')
 GROUP_SUB = int(group_sub) if group_sub and id_pattern.search(group_sub) else None
 
-#Auto approve 
-CHAT_ID = [int(app_chat_id) if id_pattern.search(app_chat_id) else app_chat_id for app_chat_id in environ.get('CHAT_ID', '').split()]
-APPROVED = environ.get("APPROVED_WELCOME", "on").lower()
 
 # Others
 VERIFY = bool(environ.get('VERIFY', False))
