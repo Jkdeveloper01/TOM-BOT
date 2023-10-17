@@ -1,5 +1,5 @@
 import os
-import logging,
+import logging
 import random
 import asyncio
 from Script import script
