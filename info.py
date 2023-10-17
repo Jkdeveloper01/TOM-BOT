@@ -15,14 +15,17 @@ def is_enabled(value, default):
     else:
         return default
 
+BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
+API_ID = int(os.environ.get("APP_ID", ""))
+API_HASH = os.environ.get("API_HASH")
+CAPTION_TEXT = os.environ.get("CAPTION_TEXT", "")
+CAPTION_POSITION = os.environ.get("CAPTION_POSITION", "bottom")
+
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ['API_ID'])
 API_HASH = environ['API_HASH']
 BOT_TOKEN = environ['BOT_TOKEN']
-CAPTION_TEXT = environ.get("CAPTION_TEXT", "<b>{file_name}\n\n⚡️Join:- [@LusiFilms]")
-CAPTION_POSITION = environ.get("CAPTION_POSITION", "bottom")
-
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
