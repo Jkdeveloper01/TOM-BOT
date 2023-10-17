@@ -1,4 +1,5 @@
 import re
+import os
 from os import environ
 from Script import script
 
@@ -19,6 +20,8 @@ SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ['API_ID'])
 API_HASH = environ['API_HASH']
 BOT_TOKEN = environ['BOT_TOKEN']
+
+CAPTION_POSITION = os.environ.get("CAPTION_POSITION", "bottom")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
