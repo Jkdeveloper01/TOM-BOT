@@ -21,19 +21,19 @@ def edit_caption(bot, update: pyrogram.types.Message):
 def get_file_details(update: pyrogram.types.Message):
   if update.media:
     for message_type in (
-        "photo",
-        "animation",
-        "audio",
+        #"photo",
+        #"animation",
+        #"audio",
         "document",
         "video",
-        "video_note",
-        "voice",
+        "video_note"
+        #"voice",
         # "contact",
         # "dice",
         # "poll",
         # "location",
         # "venue",
-        "sticker"
+        #"sticker"
     ):
         obj = getattr(update, message_type)
         if obj:
