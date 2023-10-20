@@ -1,5 +1,5 @@
 import pyrogram, os, asyncio
-from pyrogram import Client, filters
+from pyrogram import Client
 
 try: custom_caption = os.environ.get("custom_caption", "`{file_name}`")
 except Exception as custom_caption: print(f"⚠️ Custom Caption Invalid {custom_caption}")
