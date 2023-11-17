@@ -506,7 +506,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
 
     btn.append([
             InlineKeyboardButton("⇚ ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{offset}"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1}", callback_data="pages")])
-    if off_set is None:
+    if offset is None:
         btn.append([InlineKeyboardButton("📚 ᴘᴀɢᴇ​", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1}", callback_data="pages"), InlineKeyboardButton("ɴᴇxᴛ​⇛", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
@@ -639,7 +639,7 @@ async def filter_qualitys_cb_handler(client: Client, query: CallbackQuery):
     
     btn.append([
             InlineKeyboardButton("⇚ ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{offset}"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1}", callback_data="pages")])
-    if off_set is None:
+    if offset is None:
         btn.append([InlineKeyboardButton("📚 ᴘᴀɢᴇ​", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1}", callback_data="pages"), InlineKeyboardButton("ɴᴇxᴛ​⇛", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
