@@ -219,7 +219,7 @@ async def next_page(bot, query):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
+#                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
@@ -228,7 +228,7 @@ async def next_page(bot, query):
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
+#                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
@@ -241,7 +241,7 @@ async def next_page(bot, query):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
+#                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
@@ -250,7 +250,7 @@ async def next_page(bot, query):
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
+#                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
@@ -534,7 +534,7 @@ async def qualitys_cb_handler(client: Client, query: CallbackQuery):
     btn = [
         [
             InlineKeyboardButton(
-                text=lang.title(),
+                text=jeetu.title(),
                 callback_data=f"lusifilms#{jeetu.lower()}#{search}#{key}"
                 ),
         ]
@@ -1951,7 +1951,7 @@ async def auto_filter(client, msg, spoll=False):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
+#                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
@@ -1960,7 +1960,7 @@ async def auto_filter(client, msg, spoll=False):
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
+#                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
@@ -1973,7 +1973,7 @@ async def auto_filter(client, msg, spoll=False):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
+#                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
@@ -1982,15 +1982,12 @@ async def auto_filter(client, msg, spoll=False):
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
+#                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
                     InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
             )
 
-    btn.insert(0, [
-        InlineKeyboardButton(f'Join Backup ☑️', url=MAIN_CHANNEL)
-    ])
    # await message.delete()
     #m=await message.reply_text("🔍") 
   #  await asyncio.sleep(1)
