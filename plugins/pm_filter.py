@@ -403,7 +403,7 @@ async def qualitys_cb_handler(client: Client, query: CallbackQuery):
     #     search = BUTTONS.get(key)
     #     BUTTONS[key+"1"] = search
     search = FRESH.get(key)
-    search = search.replace(' ', '_')
+    search = search.replace(" ", "+")
     btn = []
     for i in range(0, len(QUALITYS)-1, 2):
         btn.append([
@@ -436,7 +436,7 @@ async def qualitys_cb_handler(client: Client, query: CallbackQuery):
 async def filter_qualitys_cb_handler(client: Client, query: CallbackQuery):
     _, jeetu, key = query.data.split("#")
     search = FRESH.get(key)
-    search = search.replace("_", " ")
+    search = search.replace("+", " ")
     baal = jeetu in search
     if baal:
         search = search.replace(jeetu, "")
@@ -566,7 +566,7 @@ async def languages_cb_handler(client: Client, query: CallbackQuery):
     #     search = BUTTONS.get(key)
     #     BUTTONS[key+"1"] = search
     search = FRESH.get(key)
-    search = search.replace(' ', '_')
+    search = search.replace(" ", "+")
     btn = []
     for i in range(0, len(LANGUAGES)-1, 2):
         btn.append([
@@ -599,7 +599,7 @@ async def languages_cb_handler(client: Client, query: CallbackQuery):
 async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     _, lang, key = query.data.split("#")
     search = FRESH.get(key)
-    search = search.replace("_", " ")
+    search = search.replace("+", " ")
     baal = lang in search
     if baal:
         search = search.replace(lang, "")
