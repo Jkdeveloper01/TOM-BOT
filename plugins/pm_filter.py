@@ -530,7 +530,9 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         await query.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(btn)
         )
-
+    except MessageNotModified:
+        pass
+    await query.answer()
     
     
 #quality
