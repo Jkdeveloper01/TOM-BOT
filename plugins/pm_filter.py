@@ -220,8 +220,8 @@ async def next_page(bot, query):
             btn.insert(0, 
                 [
 #                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
+                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}"),
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{key}")
                 ]
             )
 
@@ -229,8 +229,8 @@ async def next_page(bot, query):
             btn.insert(0, 
                 [
 #                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
+                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}"),
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{key}")
                 ]
             )
                 
@@ -242,8 +242,8 @@ async def next_page(bot, query):
             btn.insert(0, 
                 [
 #                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
+                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}"),
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{key}")
                 ]
             )
 
@@ -251,8 +251,8 @@ async def next_page(bot, query):
             btn.insert(0, 
                 [
 #                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
+                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}"),
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{key}")
                 ]
             )
     try:
@@ -344,9 +344,6 @@ async def next_page(bot, query):
                         InlineKeyboardButton("ɴᴇxᴛ​⇛", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
-    btn.insert(0, [
-        InlineKeyboardButton(f'Join Backup ☑️', url=MAIN_CHANNEL)
-    ])
     try:
         await query.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(btn)
@@ -381,7 +378,7 @@ async def advantage_spoll_choker(bot, query):
             if NO_RESULTS_MSG:
                 await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
             k = await query.message.edit(script.MVE_NT_FND)
-            await asyncio.sleep(10)
+            await asyncio.sleep(300)
             await k.delete()
 
 # Qualitys
@@ -553,10 +550,10 @@ async def languages_cb_handler(client: Client, query: CallbackQuery):
 
     try:
         if int(query.from_user.id) not in [query.message.reply_to_message.from_user.id, 0]:
-            return await query.answer(
-                f"⚠️ ʜᴇʟʟᴏ{query.from_user.first_name},\nᴛʜɪꜱ ɪꜱ ɴᴏᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ,\nʀᴇQᴜᴇꜱᴛ ʏᴏᴜʀ'ꜱ...",
-                show_alert=True,
-            )
+            return # await query.answer(
+                #f"⚠️ ʜᴇʟʟᴏ{query.from_user.first_name},\nᴛʜɪꜱ ɪꜱ ɴᴏᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ,\nʀᴇQᴜᴇꜱᴛ ʏᴏᴜʀ'ꜱ...",
+                #show_alert=True,
+            #)
     except:
         pass
     _, key = query.data.split("#")
@@ -610,10 +607,10 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     message = query.message
     try:
         if int(req) not in [query.message.reply_to_message.from_user.id, 0]:
-            return await query.answer(
-                f"⚠️ ʜᴇʟʟᴏ{query.from_user.first_name},\nᴛʜɪꜱ ɪꜱ ɴᴏᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ,\nʀᴇQᴜᴇꜱᴛ ʏᴏᴜʀ'ꜱ...",
-                show_alert=True,
-            )
+            return #await query.answer(
+                #f"⚠️ ʜᴇʟʟᴏ{query.from_user.first_name},\nᴛʜɪꜱ ɪꜱ ɴᴏᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ,\nʀᴇQᴜᴇꜱᴛ ʏᴏᴜʀ'ꜱ...",
+                #show_alert=True,
+            #)
     except:
         pass
     searchagain = search
@@ -2012,8 +2009,8 @@ async def auto_filter(client, msg, spoll=False):
             btn.insert(0, 
                 [
 #                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
+                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}"),
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{key}")
                 ]
             )
 
@@ -2021,8 +2018,8 @@ async def auto_filter(client, msg, spoll=False):
             btn.insert(0, 
                 [
 #                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
+                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}"),
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{key}")
                 ]
             )
                 
@@ -2034,8 +2031,8 @@ async def auto_filter(client, msg, spoll=False):
             btn.insert(0, 
                 [
 #                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
+                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}"),
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{key}")
                 ]
             )
 
@@ -2043,8 +2040,8 @@ async def auto_filter(client, msg, spoll=False):
             btn.insert(0, 
                 [
 #                    InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
+                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}"),
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{key}")
                 ]
             )
 
