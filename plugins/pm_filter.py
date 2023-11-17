@@ -221,7 +221,7 @@ async def next_page(bot, query):
                 [
                     InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🔮 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
             )
 
@@ -230,7 +230,7 @@ async def next_page(bot, query):
                 [
                     InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🔮 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
             )
                 
@@ -243,7 +243,7 @@ async def next_page(bot, query):
                 [
                     InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🔮 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
             )
 
@@ -252,7 +252,7 @@ async def next_page(bot, query):
                 [
                     InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🔮 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
             )
     try:
@@ -1953,7 +1953,7 @@ async def auto_filter(client, msg, spoll=False):
                 [
                     InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🔮 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
             )
 
@@ -1962,7 +1962,7 @@ async def auto_filter(client, msg, spoll=False):
                 [
                     InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🔮 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
             )
                 
@@ -1975,7 +1975,7 @@ async def auto_filter(client, msg, spoll=False):
                 [
                     InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🔮 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
             )
 
@@ -1984,7 +1984,7 @@ async def auto_filter(client, msg, spoll=False):
                 [
                     InlineKeyboardButton(f'🗂 ꜰɪʟᴇs: {total_results}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🔮 ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton('💽 Qᴜᴀʟɪᴛʏꜱ', callback_data=f"qualitys#{search.replace(' ', '_')}#{key}")
                 ]
             )
 
