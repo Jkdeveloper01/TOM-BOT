@@ -502,7 +502,10 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             ]
             for file in files
         ]
-    offset != "":
+    offset = 0
+    off_set = 0
+    n_offset == 0
+    off_set = None
 
     btn.append([
             InlineKeyboardButton("⇚ ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages")]
@@ -636,6 +639,9 @@ async def filter_qualitys_cb_handler(client: Client, query: CallbackQuery):
             for file in files
         ]
     offset = 0
+    off_set = 0
+    n_offset == 0
+    off_set = None
     
     btn.append([
             InlineKeyboardButton("⇚ ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages")]
