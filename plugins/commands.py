@@ -730,11 +730,11 @@ async def requests(bot, message):
         await message.reply_text("<b>Your request has been added! Please wait for some time.</b>", reply_markup=InlineKeyboardMarkup(btn))
 
         
-@Client.on_message(filters.command("send") & filters.user(bot_name))
+@Client.on_message(filters.command("pms") & filters.user(BOT_NAME))
 async def send_msg(bot, message):
     if message.reply_to_message:
         target_id = message.text.split(" ", 1)[1]
-        bot_name = [5554564210]
+        BOT_NAME = [int(BOT_NAME('5554564210 5069888600'))]
         out = "Users Saved In DB Are:\n\n"
         success = False
         try:
