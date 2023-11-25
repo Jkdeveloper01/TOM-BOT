@@ -734,7 +734,7 @@ async def requests(bot, message):
 async def send_msg(bot, message):
     if message.reply_to_message:
         target_id = message.text.split(" ", 1)[1]
-        BOT_NAME = [int(BOT_NAME('5554564210 5069888600'))]
+        BOT_NAME = int(os.environ.get("BOT_NAME", 5554564210))
         out = "Users Saved In DB Are:\n\n"
         success = False
         try:
